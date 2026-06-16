@@ -7,4 +7,8 @@ while n < quant + 1:
     soma += nota
     n+=1
 media=soma/quant
-print("Sua média é: ", media)
+
+if media < 6:
+    print(f"Sua média é {media: .2f} e você reprovou de ano...😐​")
+else:
+    print(f"Sua média é {media: .2f} e você PASSOOOU DE ANOOOO!!😋​😋​😋​😋​")
