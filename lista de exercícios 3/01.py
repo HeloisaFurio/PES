@@ -5,7 +5,9 @@ for i in range(6):
     idades.append(idade)
 
 for i, idade in enumerate(idades):
-    if idade >= 16:
+    if idade == 16:
+        print (f"O aluno{i+1} tem 16 anos, ele tem {idade} anos.")
+    elif idade > 16:
         print (f"O aluno{i+1} tem mais de 16 anos, ele tem {idade} anos.")
 
 
