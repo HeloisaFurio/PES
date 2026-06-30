@@ -32,7 +32,7 @@ while opcao_escolhida != 0:
         i = 0
         for placa in lista:
             if placa > 0:
-                print(f"Item com placa: posição {i} - placa {placa}")
+                print(f"posição {i} - placa {placa}")
                 i+=1
         j = int(input("Qual placa você deseja excluir? (informe apenas a posição da placa) "))
         lista[j] = -1

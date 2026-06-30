@@ -25,20 +25,44 @@ while opcao_escolhida != 0:
     elif opcao_escolhida == 2:
         print("Excluir")
         i = 0
-        for placa in lista:
-            if placa > 0:
-                print(f"Item com placa: posição {i} - placa {placa}")
-                i+=1
-        j = int(input("Qual placa você deseja excluir? (informe apenas a posição da placa) "))
-        lista[j] = -1
-        print("Placa deletada com sucesso!")
+        while i<len(nome):
+            print(f"{nome[i]}    {idade[i]}    {altura[i]}    {peso[i]}")
+            i+=1
+        nomeAExcluir = (input("Quem você deseja excluir? (informe apenas o nome) "))
+        i = 0
+        while i<len(nome):
+            if nomeAExcluir == nome[i]:
+                j=i
+                break
+            i+=1
+        nome.pop(j)
+        idade.pop(j)
+        altura.pop(j)
+        peso.pop(j)
+        print("Usuario deletado com sucesso!")
 
-        
+
     elif opcao_escolhida == 3:
+        print("Alterar")
+        i = 0
+        while i<len(nome):
+            print(f"{nome[i]}    {idade[i]}    {altura[i]}    {peso[i]}")
+            i+=1
+        nomeAAlterar = (input("Quem você deseja alterar? (informe apenas o nome) "))
+        i = 0
+        while i<len(nome):
+            if nomeAAlterar == nome[i]:
+                j=i
+                break
+            i+=1
+        idade[j]=(input("Qual a nova idade?  "))
+        altura[j]=(input("Qual a nova altura?  "))
+        peso[j]=(input("Qual o novo peso?  "))
+        
+    elif opcao_escolhida == 4:
         print("Listar")
         i = 0
-        for placa in lista:
-            if placa > 0:
-                print(f"Item com placa: {i} - {placa}")
-                i+=1
+        while i<len(nome):
+            print(f"{i}    {nome[i]}    {idade[i]}    {altura[i]}    {peso[i]}")
+            i+=1
    
