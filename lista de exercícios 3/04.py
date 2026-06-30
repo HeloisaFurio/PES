@@ -46,4 +46,4 @@ while opcao_escolhida != 0:
             if placa > 0:
                 print(f"Item com placa: {i} - {placa}")
                 i+=1
-   
+                

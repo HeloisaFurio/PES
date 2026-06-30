@@ -15,21 +15,12 @@ while opcao_escolhida != 0:
     opcao_escolhida = int(input("Digite sua opcão: "))
 
     if opcao_escolhida == 1:
-        print("Criando")
+        print("Cadastrar")
 
-        #substituir o valor se possível
-        lugar_livre = 0
-        for lugar in lista:
-            if lugar < 0:
-                break
-            lugar_livre = lugar_livre + 1
- 
-        if lugar_livre > len(lista):
-            print("Não posso cadastrar!")
-        else:
-            print(f"Tem um espaço no {lugar_livre}")
-
-            lista[lugar_livre] = int(input("Digite sua placa: "))
+        nome.append((input("Digite o nome: ")))
+        idade.append(int(input("Digite a idade: ")))
+        altura.append(float(input("Digite a altura: ")))
+        peso.append(float(input("Digite o peso (em kilos): ")))
             
     elif opcao_escolhida == 2:
         print("Excluir")
