@@ -11,6 +11,7 @@ while opcao_escolhida != 0:
         2 - Excluir
         3 - Alterar
         4 - Listar
+        5 - Pesquisar
         0 - Sair""")
     opcao_escolhida = int(input("Digite sua opcão: "))
 
@@ -53,4 +54,13 @@ while opcao_escolhida != 0:
         while i<len(nome):
             print(f"{i}    {nome[i]}    {idade[i]}    {altura[i]}    {peso[i]}")
             i+=1
-   
+
+    elif opcao_escolhida == 5:
+        print("Pesquisar")
+        nomeAPesquisar = (input("Por quem você esta procurando?(informe apenas o nome) "))
+        i = 0
+        while i<len(nome):
+            if nomeAPesquisar == nome[i]:
+                print(f"{i}    {nome[i]}    {idade[i]}    {altura[i]}    {peso[i]}")
+                break
+            i+=1
