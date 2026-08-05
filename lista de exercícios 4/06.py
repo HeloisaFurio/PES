@@ -14,7 +14,7 @@ while opcao_escolhida != 0:
     i=0
     if opcao_escolhida == 1:
         print("Cadastrar")
-        notas.append(int(input(f"Digite sua nota 0{i+1}:  ")))
+        notas.append(int(input("Digite sua nota:  ")))
 
     elif opcao_escolhida == 2:
         print("Excluir")
