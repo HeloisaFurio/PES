@@ -47,7 +47,7 @@ acesso = [{
     "profs": ["Prof Schalata", "Prof Ignácio", "Prof Thiago Waltrik", "Prof Thiago Paes"]
 }, {
     "lab": "Lab107",
-    "profs": ["Prof André", "Prof Schalata", "Prof Thiago", "Prof Thiago Waltrik", "Prof Thiago Paes", "Prof João Eduardo"]
+    "profs": ["Prof André", "Prof Schalata", "Prof Thiago Waltrik", "Prof Thiago Paes", "Prof João Eduardo"]
 }]
 
 opcao_escolhida = -1
@@ -125,14 +125,15 @@ while opcao_escolhida != 0:
                 i+=1
 
     elif opcao_escolhida == 5:
-        if opcao_escolhida == 1:
         print("Cadastrar")
-        nome = input("Digite o nome do(a) professor(a):  ")
-        cod = (input("Digite o código do(a) professor(a):  "))
-        prof.append({
-            "nome": nome, 
-            "cod": cod,
-        })
+        lab = input("Digite em qual laboratório deseja cadastrar os professores: ")
+        profs = input("Digite o código dos professores: ")
+        for laboratorio in acesso:
+            if laboratorio["lab"] == lab:
+                for codigo in profs.split(", "):
+                    for professor in prof:
+                        if professor["cod"] == codigo:
+                            laboratorio["profs"].append(professor["nome"])
 
     elif opcao_escolhida == 6:
         print("Excluir")
@@ -174,6 +175,7 @@ while opcao_escolhida != 0:
         prof[indice]["nome"]=(input("Qual o novo nome?  "))
 
     elif opcao_escolhida == 8:
+        #####listar
         i = 0
         while i<len(acesso):
             nomeS = ""
