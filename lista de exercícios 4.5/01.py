@@ -126,6 +126,10 @@ while opcao_escolhida != 0:
 
     elif opcao_escolhida == 5:
         print("Cadastrar")
+        i = 0
+        while i<len(prof):
+            print(f'Código:{prof[i]["cod"]} - {prof[i]["nome"]}')
+            i+=1
         lab = input("Digite em qual laboratório deseja cadastrar os professores: ")
         profs = input("Digite o código dos professores: ")
         for laboratorio in acesso:
@@ -137,25 +141,66 @@ while opcao_escolhida != 0:
 
     elif opcao_escolhida == 6:
         print("Excluir")
+        print("")
+        print("Lista láboratorios: ")
+        for laboratorio in acesso:
+            print("- ", laboratorio["lab"])
         
-        ######### Listar #########
-        i = 0
-        while i<len(prof):
-            print(f'Código:{prof[i]["cod"]} - {prof[i]["nome"]}')
-            i+=1
-        #########################
-        
-        codigo_ser_procurado = input("Quem você deseja excluir? (informe o código) ")
-        
+        nome_laboratorio = input("Digite em qual laboratório deseja excluir os professores: ")
+
         indice = 0
-        while indice < len(prof):
-            if prof[indice]["cod"] == codigo_ser_procurado:
-                break
+        while indice < len(acesso):
+            if(acesso[indice]["lab"] == nome_laboratorio):
+                print("Encontrei o láboratorio: ", nome_laboratorio)
+                print("Professores presentes: ")
+
+                professores_presentes = []
+                for profis in prof:
+                    
+                    if profis["nome"] in acesso[indice]["profs"]: # se o nome do professor está na lista de nomes que tem acesso
+                        professores_presentes.append(profis)
+
+                for presentes in professores_presentes:
+                    print("- ", presentes["cod"], " - ", presentes["nome"])
+
+                profs = input("Digite o código do professor: ")
             indice+=1
 
-        prof.pop(indice)
 
-        print("Amigo deletado com sucesso!")
+
+
+
+
+
+######### Listar #########
+        i = 0
+        while i<len(acesso):
+            nomeS = ""
+            for nome in acesso[i]["profs"]:
+                nomeS+=nome+", "
+############ arrumar a virgula no texto (Ele corta os dois ultimos caracteres)
+            nomeS = nomeS[:-2] + "."
+            
+            print(f'{acesso[i]["lab"]} - {nomeS}')
+            i+=1
+############################################
+        for laboratorio in acesso:
+            if laboratorio["lab"] == lab:
+                for codigo in profs.split(", "):
+                    for professor in prof:
+                        if professor["cod"] == codigo:
+                            laboratorio["profs"].append(professor["nome"])
+    # codigo_ser_procurado = input("Quem você deseja excluir? (informe o código) ")
+
+    # indice = 0
+    # while indice < len(prof):
+    #     if prof[indice]["cod"] == codigo_ser_procurado:
+    #         break
+    #     indice+=1
+
+    # prof.pop(indice)
+
+        # print("Amigo deletado com sucesso!")
 
     elif opcao_escolhida == 7:
         print("Alterar")
