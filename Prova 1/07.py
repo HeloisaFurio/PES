@@ -14,7 +14,7 @@ while opcao != 0:
     if opcao == 1:
         print("Cadastro")
         placa = input("Insira a placa: \n- ")
-        print("\n"
+        print("\n")
         placas.append(placa)
 
     elif opcao == 2:
