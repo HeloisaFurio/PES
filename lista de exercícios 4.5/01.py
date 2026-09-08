@@ -187,36 +187,61 @@ while opcao_escolhida != 0:
                 ##################################### com o nome, buscar indice
                 indice_do_professor = 0
                 indice_2 = 0
-                while indice_2 > len(acesso[indice]["profs"]):
+                while indice_2 < len(acesso[indice]["profs"]):
                     prof_nome = acesso[indice]["profs"][indice_2]
                     if prof_nome == nome_buscado:
                         indice_do_professor = indice_2
                     indice_2 += 1
                 
-                acesso[indice]["profs"][indice_do_professor]
+                acesso[indice]["profs"].remove(nome_buscado)
+                print("Professor deletado com sucesso!")
+                break
 
             indice+=1
-
         print("Professor deletado com sucesso!")
 
-
-
     elif opcao_escolhida == 7:
-        print("Alterar")
-        i = 0
-        while i<len(prof):
-            print(f'Código:{prof[i]["cod"]} - {prof[i]["nome"]}')
-            i+=1
-        codigo_ser_procurado = input("Quem você deseja alterar? (informe o código) ")
-        
-        indice = 0
-        while indice < len(prof):
-            if prof[indice]["cod"] == codigo_ser_procurado:
-                break
-            indice+=1
+        print("Alterar professor do laboratório")
 
-        prof[indice]["cod"]=(input("Qual o novo código?  "))
-        prof[indice]["nome"]=(input("Qual o novo nome?  "))
+        print("Lista laboratórios:")
+        for laboratorio in acesso:
+            print("-", laboratorio["lab"])
+
+        lab = input("Digite o laboratório: ")
+
+        for laboratorio in acesso:
+            if laboratorio["lab"] == lab:
+
+                print("Professores atuais:")
+
+                professores_presentes = []
+
+                for professor in prof:
+                    if professor["nome"] in laboratorio["profs"]:
+                        professores_presentes.append(professor)
+
+                for presente in professores_presentes:
+                    print(f'{presente["cod"]} - {presente["nome"]}')
+
+                codigo_antigo = input("Código do professor que será substituído: ")
+                codigo_novo = input("Código do novo professor: ")
+
+                nome_antigo = ""
+                nome_novo = ""
+
+                for professor in prof:
+                    if professor["cod"] == codigo_antigo:
+                        nome_antigo = professor["nome"]
+
+                    if professor["cod"] == codigo_novo:
+                        nome_novo = professor["nome"]
+
+                if nome_antigo in laboratorio["profs"]:
+                    indice_prof = laboratorio["profs"].index(nome_antigo)
+                    laboratorio["profs"][indice_prof] = nome_novo
+                    print("Acesso alterado com sucesso!")
+
+                break
 
     elif opcao_escolhida == 8:
         #####listar
