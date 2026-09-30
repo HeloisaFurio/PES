@@ -3,7 +3,7 @@ class Aluno:
         self.nome = nome
         self.idade = idade
 
-    def apresentar(self)
+    def apresentar(self):
         print(f"Meu nome é {self.nome} e tenho {self.idade} anos.")
 
 Helo = Aluno("Heloisa Furio", 16)
@@ -13,6 +13,6 @@ Zan = Aluno("Lorenzo Zan", 16)
 alunos = [Helo, Julia, Zan]
 
 for aluno in alunos:
-    print(f"Aluno: {aluno.nome}  Idade: {idade.nome}")
+    print(f"Aluno: {aluno.nome}  Idade: {aluno.nome}")
 
 Helo.apresentar()
