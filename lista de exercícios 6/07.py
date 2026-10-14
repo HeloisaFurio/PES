@@ -36,7 +36,7 @@ while opcao_escolhida != 0:
             print(pessoa.exibir())
 
     elif opcao_escolhida == 3:
-        print("Escluir:")
+        print("Excluir:")
         for pessoa in lista_pessoa:
             print(pessoa.exibir())
         nomeAExcluir = input("Quem você deseja exluir?\n- ")
